@@ -1,0 +1,182 @@
+\documentclass[10pt]{article}
+\input{hassium}
+\def\htitle{Math 000 Notes}
+\def\pagetitle{Change this in \texttt{$\backslash$def$\backslash$pagetitle}\{\}}
+\usetikzlibrary{decorations.markings,arrows}
+\begin{document}
+\blfootnote{These notes are adapted from professor ???'s lecture, FA/SP20XX.}
+\def\habauthor{Abbreviation of your name(s)}
+\def\hauthor{Full name(s)}\blfootnote{ If you spot any error in these notes, please reach out to me via email \texttt{???@gmail.com}, or you can direct message me on Discord at \texttt{???}.}
+\hsetup
+\htoc
+\hmain
+
+(month/day) This is for patch notes. 
+
+(12/04) Today's a good day!
+
+(9/24) Changed margins so that it doesn't look like shit. More specifically, increased margins on all sides.
+
+\newpage
+\section*{First Section} \addcontentsline{toc}{section}{First Section}\stepcounter{section}
+\descr{This is your section description.}
+\fbox{\begin{minipage}{49.5em}
+Here is a brief summary of this section.
+\end{minipage}}\\\\
+\begin{hdefinition}[cotangent bundle]
+    Recall that the dual vector space of a finite dimensional vector space $V$ is $V^*:= \hom(V, \R)$. For any basis $v^1, ..., v^n$ of $V$, we can find a basis $dv^1, ..., dv^n$ of $V^*$ characterized by 
+    $$
+        dv^j(v^i) = 
+        \begin{cases}
+            0 & \text{ if } i\neq j \\
+            1 & \text{ everything else } 
+        \end{cases}
+        =
+        \delta^{ij} 
+    $$
+    For $E = TM$, the dual bundle $(TM)^* = T^*M$ is the cotangent bundle of $M$.
+    We can apply this to $T_pM$ and $T^*_pM$. Given local coordinates $x^1,...,x^n$ on $U\sube M$, for each $p\in U$ the coordinate basis $\frac{\pa }{\pa x^1}\big|_p, ..., \frac{\pa }{\pa x^n}\big|_p$ provides a basis for $T_pM$, which gives rise to a dual basis for $T^*_pM$: $dx^1|_p,...,dx^n|_p$. Similarly, it is characterized by 
+    $$
+        dx^j|_p \left( \frac{\pa}{\pa x^i} \bigg|_p\right) = \delta^{ij} \in C^\infty(U)
+    $$
+    
+\end{hdefinition}
+\begin{remark}
+    More generally, for any $\omega \in \Gamma(T^*M) = \fr{X}^*(M)$, we can pair any $X\in \Gamma(TM) = \fr{X}(M)$ with $\omega(X) \in C^\infty(M)$. Recall that $\omega: M\to T^*M$ with coordinate functions $\omega_1,..., \omega_n$. It follows from the coordinate formula of (co)vector fields that
+    \begin{align*}
+        \omega|_{U} = \omega_idx^i \quad \text{ and }\quad \omega|_{U} \left( \frac{\pa}{\pa x^j} \right) = \omega_idx^i\left( \frac{\pa}{\pa x^j} \right) = \omega_i \tag{$\blacksquare$}
+    \end{align*}
+    for some $U\sube M$.
+\end{remark}
+
+\section*{Second Section} \addcontentsline{toc}{section}{Second Section}\stepcounter{section}
+\descr{This is your section description.}
+\fbox{\begin{minipage}{49.5em}
+Here is a brief summary of this section.
+\end{minipage}}\\\\
+\begin{example}
+    Some $k$-forms
+    \begin{enumerate}
+        \item $\Omega^1(M) = \Gamma(T^*M)$, i.e. differential 1-form are covectors.
+        \item $\Omega^0(M) = C^\infty(M)$. This becomes $\Omega^1(M)$ under $d$. So we have a map $d: \Omega^0(M) \to \Omega^1(M)$. $df(V) = V(f)$ for any $V\in \fr{X}(M)$. Locally, 
+        $$df = \frac{\pa f}{\pa x^i}dx^i$$
+    \end{enumerate}
+\end{example}
+
+\section*{Third Section} \addcontentsline{toc}{section}{Third Section}\stepcounter{section}
+\descr{Can't believe we have another section. This text is only visible on the first page.}
+\fbox{\begin{minipage}{49.5em}
+Here is a brief summary of this section. Maybe this is not that useful for shorter notes. Who knows. 
+\end{minipage}}\\\\
+\begin{lemma}
+    Every Cauchy sequence is bounded.
+\end{lemma}
+\begin{proof}
+    Let $(a_{n})$ be Cauchy. We choose $ 0<\epsilon_{0}$. So for all $ n>m\geq N_{0}$ we have that $\vert a_{n}-a_{m} \vert < \epsilon_{0}$. Therefore $(a_{n})$ is bounded for all $ m \geq N_{0} $ by $ \epsilon_{0} $. Since $ \mathbb{N}_{N_{0}}$ is finite, it is bounded. So, for all $ m<N_{0} $, $ (a_{n})$ is bounded. Therefore $(a_{n})$ is bounded.
+\end{proof}
+\begin{theorem}
+    $\R^n$ is complete for each $n\in \mathbb{N}$ (with respect to any metric $d_p$ for any $p\in[1,\infty]$)
+\end{theorem}
+\begin{proof}
+    Take any Cauchy sequence $(x_n)$ in $\R^n$. It is bounded. So $(x_n)_{n\in \mathbb{N}}$ is contained in some closed ball (with respect to $d_p$). This ball is closed and bounded in $\R^n$, thus compact. This implies sequentially compact. It follows that there exists a subsequence of $(x_n)$ converging to some $x$ in a ball. This implies $(x_n)$ converges to $x\in\R^n$.
+\end{proof}
+\begin{proposition}
+    This is a parabola:
+    \begin{center}
+        \functiondraw{0.8}{-5}{5}{x^2}
+    \end{center}
+\end{proposition}
+\begin{hdefinition}[product]
+    A diagram $A\xleftarrow{{p}_{1}}P\xrightarrow{{p}_{2}}$ is a product if for all object $Z$ and a diagram $A\xleftarrow{{z}_{1}}Z\xrightarrow{{z}_{2}}$, there exists a unique $u:Z\to P$ such that ${z}_{i}={p}_{i}\circ{u}_{i}$. The coproduct is the dual of product, that is, a diagram $A\xrightarrow{{q}_{1}}Q\xleftarrow{{q}_{2}} B$ is a coproduct if for all object $Z$ and a diagram $A\xrightarrow{{z}_{1}}Z\xleftarrow{{z}_{2}}B$, there exists a unique $u:Q\to Z$ such that ${z}_{i}={q}_{i}\circ u$.
+    \begin{center}
+        $\begin{tikzcd}
+    	&& Z \\
+    	\\
+    	A && P && B
+    	\arrow["{{z}_{1}}"', from=1-3, to=3-1]
+    	\arrow["u", dotted, from=1-3, to=3-3]
+    	\arrow["{{z}_{2}}", from=1-3, to=3-5]
+    	\arrow["{{p}_{1}}", from=3-3, to=3-1]
+    	\arrow["{{p}_{2}}"', from=3-3, to=3-5]
+        \end{tikzcd}
+        \qquad
+        \begin{tikzcd}
+    	&& Z \\
+    	\\
+    	A && Q && B
+    	\arrow["{{z}_{1}}", from=3-1, to=1-3]
+    	\arrow["{{q}_{1}}", from=3-1, to=3-3]
+    	\arrow["u"', dotted, from=3-3, to=1-3]
+    	\arrow["{{z}_{2}}"', from=3-5, to=1-3]
+    	\arrow["{{q}_{2}}"', from=3-5, to=3-3]
+        \end{tikzcd}$
+    \end{center}
+\end{hdefinition}
+
+\section*{Appendix} \addcontentsline{toc}{section}{Appendix}\stepcounter{section}
+\begin{atheorem}[theorem in appendix]
+    Now we have a new appendix numbering convention. Anything starts with $\textbf{A}$ gets renumbered. This way, we can refer to a consistent number as the project progresses.
+\end{atheorem}
+Basic commands and symbols they make. Also some popular fonts.
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        Command & Symbol \\
+        \hline
+        \texttt{$\backslash $sub} & $\sub$ \\
+        \hline
+        \texttt{$\backslash $sube} & $\sube$ \\
+        \hline
+        \texttt{$\backslash $supe} & $\supe$ \\
+        \hline
+        \texttt{$\backslash $nsub} & $\nsub$ \\
+        \hline
+        \texttt{$\backslash $nsup} & $\nsup$ \\
+        \hline
+        \texttt{$\backslash $nsube} & $\nsube$ \\
+        \hline
+        \texttt{$\backslash $nsupe} & $\nsupe$ \\
+        \hline
+        \texttt{$\backslash $Ra} & $\Ra$ \\
+        \hline
+        \texttt{$\backslash $La} & $\La$ \\
+        \hline
+        \texttt{$\backslash $al} & $\al$ \\
+        \hline
+        \texttt{$\backslash $be} & $\be$ \\
+        \hline
+        \texttt{$\backslash $ga} & $\ga$ \\
+        \hline
+        \texttt{$\backslash $de} & $\de$ \\
+        \hline
+        \texttt{$\backslash $si} & $\si$ \\
+        \hline
+        \texttt{$\backslash $la} & $\la$ \\
+        \hline
+        \texttt{$\backslash $< ...$\backslash $>} & $\<...\>$ \\
+        \hline
+        \texttt{$\backslash$es} & $\es$ \\
+        \hline
+        \texttt{$\backslash $inv} & $(...)\inv$ \\
+        \hline
+        \end{tabular}
+    \hspace{2cm}
+    \begin{tabular}{|c|c|}
+        \hline
+        Command & Font \\
+        \hline
+        \texttt{$\backslash $fr\{\}} & $\fr{M}$ \\
+        \hline
+        \texttt{$\backslash $bb\{\}} & $\bb{M}$ \\
+        \hline
+        \texttt{$\backslash $cat\{\}} & $\cat{M}$ \\
+        \hline
+        \texttt{$\backslash $cal\{\}} & $\cal{M}$ \\
+        \hline
+        \texttt{$\backslash $textit} & $\textit{M}$ \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\hindex
+\end{document}
